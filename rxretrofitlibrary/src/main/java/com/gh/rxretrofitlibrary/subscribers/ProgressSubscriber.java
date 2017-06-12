@@ -166,7 +166,7 @@ public class ProgressSubscriber<T> implements Observer<T> {
       * @param e
       */
      @Override
-     public void onError(Throwable e) {
+     public void onError(final Throwable e) {
           dismissProgressDialog();
         /*需要緩存并且本地有缓存才返回*/
           if (api.isCache()) {
@@ -191,7 +191,9 @@ public class ProgressSubscriber<T> implements Observer<T> {
                     /*获取缓存数据*/
                          CookieResulte cookieResulte = CookieDbUtil.getInstance().queryCookieBy(s);
                          if (cookieResulte == null) {
-                              throw new HttpTimeException("网络错误");
+//                              throw new HttpTimeException("网络错误");
+                              errorDo(e);
+                              return;
                          }
                          long time = (System.currentTimeMillis() - cookieResulte.getTime()) / 1000;
                          if (time < api.getCookieNoNetWorkTime()) {
@@ -200,7 +202,9 @@ public class ProgressSubscriber<T> implements Observer<T> {
                               }
                          } else {
                               CookieDbUtil.getInstance().deleteCookie(cookieResulte);
-                              throw new HttpTimeException("网络错误");
+//                              throw new HttpTimeException("网络错误");
+                              errorDo(e);
+                              return;
                          }
                     }
                });
@@ -208,6 +212,17 @@ public class ProgressSubscriber<T> implements Observer<T> {
                errorDo(e);
           }
      }
+
+//     @Override
+//     public void onError(final Throwable e) {
+//          dismissProgressDialog();
+//        /*需要緩存并且本地有缓存才返回*/
+//          if (api.isCache()) {
+//               Observable.just(api.getUrl()).subscribe(new SafeO<String>(){});
+//          } else {
+//               errorDo(e);
+//          }
+//     }
 
      /*错误统一处理*/
      private void errorDo(Throwable e) {

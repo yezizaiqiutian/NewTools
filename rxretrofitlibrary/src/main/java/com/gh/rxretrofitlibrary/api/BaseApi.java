@@ -21,12 +21,9 @@ import retrofit2.Retrofit;
 
 //gh_联网模式选取
 //gh_模式一
-//public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
+//public abstract class BaseApi<T> implements Function<BaseResultEntity<T>, T> {
 //gh_模式二
-//public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, BaseResultEntity<T>> {
 //gh_模式三
-//public abstract class BaseApi<T> implements Function<BaseEntity, BaseEntity> {
-//gh_模式四
 public abstract class BaseApi<T> implements Function<T, T> {
 
     //rx生命周期管理
@@ -190,7 +187,7 @@ public abstract class BaseApi<T> implements Function<T, T> {
 ////    public T call(BaseResultEntity<T> httpResult) {
 //    //gh_模式二
 ////    public BaseResultEntity<T> call(BaseResultEntity<T> httpResult) {
-//    // gh_模式三
+//    //gh_模式三
 //    public BaseEntity apply(BaseEntity httpResult) {
 //
 //        if (httpResult.getRet() != 1) {
@@ -204,14 +201,25 @@ public abstract class BaseApi<T> implements Function<T, T> {
 //        return httpResult;
 //    }
 
-    //gh_模式四
+
     @Override
+    //gh_模式一
+//    public T apply(@NonNull BaseResultEntity<T> t) throws Exception {
+    //gh_模式二
+    //gh_模式三
     public T apply(@NonNull T t) throws Exception {
+        //gh_模式一
+        //gh_模式二
+//        BaseResultEntity httpResult = (BaseResultEntity) t;
+        //gh_模式三
         BaseEntity httpResult = (BaseEntity) t;
-        if (httpResult.getRet() != 1) {
+        if (httpResult.getRet() == 1) {
             throw new HttpTimeException(httpResult.getMsg()+"试试错误");
         }
-
+        //gh_模式一
+//        return t.getData();
+        //gh_模式二
+        //gh_模式三
         return t;
     }
 }

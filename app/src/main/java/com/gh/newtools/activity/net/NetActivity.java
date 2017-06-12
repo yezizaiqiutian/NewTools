@@ -7,13 +7,13 @@ import android.widget.TextView;
 
 import com.gh.newtools.R;
 import com.gh.newtools.base.BaseActivity;
-import com.gh.rxretrofitlibrary.api.BaseResultEntity;
 import com.gh.rxretrofitlibrary.http.HttpManager;
 import com.gh.rxretrofitlibrary.listener.HttpOnNextListener;
+import com.gh.rxretrofitlibrary.utils.CookieDbUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.List;
+import java.lang.reflect.Type;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,6 +42,8 @@ public class NetActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_net);
         ButterKnife.bind(this);
+
+        CookieDbUtil.getInstance().deleteAll();
     }
 
     @OnClick(R.id.id_btn)
@@ -81,10 +83,15 @@ public class NetActivity extends BaseActivity {
         public void onCacheNext(String cache, int cacheType) {
             /*缓存回调*/
             Gson gson = new Gson();
-            java.lang.reflect.Type type = new TypeToken<BaseResultEntity<List<SubjectResulte>>>() {
-            }.getType();
-            BaseResultEntity resultEntity = gson.fromJson(cache, type);
-            id_tv_msg.setText("缓存返回：\n" + resultEntity.getData().toString());
+            //gh_联网模式选取
+            //gh_模式一
+            //gh_模式二
+//            Type type = new TypeToken<BaseResultEntity<List<SubjectResulte>>>() {}.getType();
+//            BaseResultEntity resultEntity = gson.fromJson(cache, type);
+            //gh_模式三
+            Type type = new TypeToken<SubjectEntity>() {}.getType();
+            SubjectEntity resultEntity = gson.fromJson(cache, type);
+            id_tv_msg.setText((cacheType == HAVENET_TOCACHE? "没有请求网络":"请求网络失败")+"缓存返回：\n" + resultEntity.getData().toString());
         }
 
         /*用户主动调用，默认是不需要覆写该方法*/

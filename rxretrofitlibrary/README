@@ -16,9 +16,6 @@ http://blog.csdn.net/wzgiceman/article/details/51939574
     //gh_模式二
     //gh_模式三
 
-    由于RxJava升级现只能采用模式4
-    //gh_模式四
-    其他模式可根据以前写的进行修改
 
     若采用模式1,2,则采用BaseResultEntity,
     若采用模式3,则采用BaseEntity

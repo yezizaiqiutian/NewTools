@@ -50,14 +50,17 @@ public class CookieInterceptor implements Interceptor {
             String bodyString = buffer.clone().readString(charset);
             CookieResulte resulte= dbUtil.queryCookieBy(url);
             long time=System.currentTimeMillis();
-            /*保存和更新本地数据*/
-            if(resulte==null){
-                resulte  =new CookieResulte(url,bodyString,time);
-                dbUtil.saveCookie(resulte);
-            }else{
-                resulte.setResulte(bodyString);
-                resulte.setTime(time);
-                dbUtil.updateCookie(resulte);
+            //保证返回不包含错误才缓存
+            if (bodyString.indexOf("\"ret\":0") != -1) {
+                /*保存和更新本地数据*/
+                if(resulte==null){
+                    resulte  =new CookieResulte(url,bodyString,time);
+                    dbUtil.saveCookie(resulte);
+                }else{
+                    resulte.setResulte(bodyString);
+                    resulte.setTime(time);
+                    dbUtil.updateCookie(resulte);
+                }
             }
         }
         return response;
