@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gh.newtools">
+
+    <!--联网权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 网络状态权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--写入SD卡权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--读取SD卡权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".base.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.net.NetActivity"/>
+        <activity android:name=".activity.exit.ExitActivity"/>
+        <activity android:name=".activity.glide.GlideActivity"/>
+        <activity android:name=".activity.glide.GlideDownLoadActivity"/>
+        <activity android:name=".activity.select.SelectDateActivity"/>
+        <activity android:name=".activity.saveview.SaveViewActivity"/>
+        <activity android:name=".activity.luban.AdvancedLubanActivity"/>
+        <activity android:name=".activity.slidcloseactivity.SlidCloseActivity"/>
+        <activity android:name=".activity.apkupload.ApkUploadActivity"/>
+
+        <receiver android:name=".widget.apkupload.receivers.ApkInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

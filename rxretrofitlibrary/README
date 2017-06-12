@@ -1,0 +1,24 @@
+联网框架封装
+
+https://github.com/wzgiceman/RxjavaRetrofitDemo-master/issues
+http://blog.csdn.net/wzgiceman/article/details/51939574
+
+已根据上面的demo更新至rxjava2(原rxjava1与鲁班冲突)
+
+模式暂时可以分为三种:
+    1:baseEntity的参数为:code,msg,data(只有一个T类型的参数),错误统一处理,返回结果中只包含data,demo中原有模式
+    2:baseEntity的参数为:code,msg,data(只有一个T类型的参数),错误统一处理,返回结果中包含code,msg,data,可以在请求后更加灵活的处理错误
+    2:baseEntity的参数为:code,msg,子类继承base,可以适应各种情况,错误统一处理,返回结果为子类完整对象,在三种模式中最为灵活
+
+    注释为:
+    //gh_联网模式选取
+    //gh_模式一
+    //gh_模式二
+    //gh_模式三
+
+    由于RxJava升级现只能采用模式4
+    //gh_模式四
+    其他模式可根据以前写的进行修改
+
+    若采用模式1,2,则采用BaseResultEntity,
+    若采用模式3,则采用BaseEntity

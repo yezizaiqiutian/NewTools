@@ -1,0 +1,6 @@
+http://jaeger.itscoder.com/android/2016/02/15/status-bar-demo.html
+https://github.com/laobie/StatusBarUtil
+
+StatusBarUtil
+    沉浸模式工具类
+    StatusBarUtil在ViewPagerFragment中的测试,内容会整体上移,不建议使用
