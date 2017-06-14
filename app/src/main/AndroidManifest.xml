@@ -41,6 +41,9 @@
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".activity.tab.TabActivity"/>
+        <activity android:name=".activity.tab.Tab2Activity"/>
     </application>
 
 </manifest>

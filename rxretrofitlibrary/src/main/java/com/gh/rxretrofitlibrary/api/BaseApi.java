@@ -213,7 +213,8 @@ public abstract class BaseApi<T> implements Function<T, T> {
 //        BaseResultEntity httpResult = (BaseResultEntity) t;
         //gh_模式三
         BaseEntity httpResult = (BaseEntity) t;
-        if (httpResult.getRet() == 1) {
+        // TODO: 2017/6/14 不等于正确code时抛出异常
+        if (httpResult.getRet() != 1) {
             throw new HttpTimeException(httpResult.getMsg()+"试试错误");
         }
         //gh_模式一

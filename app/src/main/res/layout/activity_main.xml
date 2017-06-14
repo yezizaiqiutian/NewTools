@@ -53,5 +53,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="APK更新"/>
+    <Button
+        android:id="@+id/id_btn10_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tab"/>
+    <Button
+        android:id="@+id/id_btn11_tab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tab"/>
 
 </LinearLayout>
