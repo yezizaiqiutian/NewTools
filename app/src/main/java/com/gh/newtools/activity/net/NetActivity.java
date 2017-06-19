@@ -3,6 +3,7 @@ package com.gh.newtools.activity.net;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.gh.newtools.R;
@@ -49,6 +50,13 @@ public class NetActivity extends BaseActivity {
     @OnClick(R.id.id_btn)
     public void onViewClicked() {
 
+        callNet();
+        //测试同时访问网络的情况
+//        callNet();
+
+    }
+
+    private void callNet() {
         SubjectPostApi postEntity = new SubjectPostApi(simpleOnNextListener, this);
         postEntity.setAll(true);
         HttpManager manager = HttpManager.getInstance();
@@ -77,6 +85,7 @@ public class NetActivity extends BaseActivity {
             //gh_模式二
             //gh_模式三
             id_tv_msg.setText("网络返回：\n" + subjects.getData().toString());
+            Log.d("gh", "请求成功");
         }
 
         @Override

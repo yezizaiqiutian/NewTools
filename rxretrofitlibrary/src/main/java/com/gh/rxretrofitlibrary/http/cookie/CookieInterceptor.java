@@ -51,7 +51,7 @@ public class CookieInterceptor implements Interceptor {
             CookieResulte resulte= dbUtil.queryCookieBy(url);
             long time=System.currentTimeMillis();
             //保证返回不包含错误才缓存
-            // TODO: 2017/6/13 修改为自己服务器正确时的code 
+            // TODO: 2017/6/13 修改为自己服务器正确时的code
             if (bodyString.indexOf("\"ret\":0") != -1) {
                 /*保存和更新本地数据*/
                 if(resulte==null){

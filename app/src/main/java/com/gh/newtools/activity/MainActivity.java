@@ -1,6 +1,7 @@
 package com.gh.newtools.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -12,19 +13,28 @@ import com.gh.newtools.activity.glide.GlideActivity;
 import com.gh.newtools.activity.glide.GlideDownLoadActivity;
 import com.gh.newtools.activity.luban.AdvancedLubanActivity;
 import com.gh.newtools.activity.net.NetActivity;
+import com.gh.newtools.activity.net.file.UpLoadActivity;
 import com.gh.newtools.activity.saveview.SaveViewActivity;
 import com.gh.newtools.activity.select.SelectDateActivity;
 import com.gh.newtools.activity.slidcloseactivity.SlidCloseActivity;
 import com.gh.newtools.activity.tab.Tab2Activity;
 import com.gh.newtools.activity.tab.TabActivity;
+import com.gh.newtools.activity.tab.UploadApi;
 import com.gh.newtools.base.BaseActivity;
 import com.gh.newtools.utils.T;
+import com.gh.rxretrofitlibrary.http.HttpManager;
+import com.gh.rxretrofitlibrary.listener.HttpOnNextListener;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class MainActivity extends BaseActivity {
 
@@ -45,7 +55,8 @@ public class MainActivity extends BaseActivity {
             R.id.id_btn8_slidclose,
             R.id.id_btn9_apkupload,
             R.id.id_btn10_tab,
-            R.id.id_btn11_tab2
+            R.id.id_btn11_tab2,
+            R.id.id_btn12_fileup
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -81,6 +92,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.id_btn11_tab2:
                 Tab2Activity.actionStart(mContext);
+                break;
+            case R.id.id_btn12_fileup:
+                UpLoadActivity.actionStart(mContext);
                 break;
         }
     }

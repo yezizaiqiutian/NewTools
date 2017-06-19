@@ -1,19 +1,51 @@
 apply plugin: 'com.android.application'
 
+Properties props = new Properties()
+props.load(new FileInputStream(rootProject.file('signing.properties')))
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+
+    //配置签名
+    signingConfigs {
+        config {
+            keyAlias props['KEY_ALIAS']
+            keyPassword props['KEY_PASSWORD']
+            storeFile file(props['KEYSTORE_FILE'])
+            storePassword props['KEYSTORE_PASSWORD']
+        }
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+        release {
+            debuggable false
+            signingConfig signingConfigs.config
+        }
+    }
+
+//    compileSdkVersion 25
+//    buildToolsVersion "25.0.3"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 //    packagingOptions {
 //        exclude 'META-INF/rxjava.properties'
 //        exclude 'META-INF/LICENSE.properties'
 //    }
     defaultConfig {
-        applicationId "com.gh.newtools"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        applicationId "com.gh.newtools"
+//        minSdkVersion 15
+//        targetSdkVersion 25
+//        versionCode 1
+//        versionName "1.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+//        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -28,24 +60,30 @@ dependencies {
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+//    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     testCompile 'junit:junit:4.12'
 
-    //注解
-    compile 'com.jakewharton:butterknife:7.0.1'
+//    //注解
+//    compile 'com.jakewharton:butterknife:7.0.1'
+//
+//    //5.0风格
+//    compile 'com.android.support:design:25.3.1'
+//
+//    //滑动关闭页面库
+//    compile 'com.r0adkll:slidableactivity:2.0.5'
+//
+//    //glide
+//    compile 'com.github.bumptech.glide:glide:3.7.0'
+//
+//    //滑动关闭Activity
+//    compile 'com.r0adkll:slidableactivity:2.0.5'
 
-    //5.0风格
-    compile 'com.android.support:design:25.3.1'
-
-    //滑动关闭页面库
-    compile 'com.r0adkll:slidableactivity:2.0.5'
-
-    //glide
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-
-    //滑动关闭Activity
-    compile 'com.r0adkll:slidableactivity:2.0.5'
+    compile rootProject.ext.dependencies.supportv7
+    compile rootProject.ext.dependencies.butterknife
+    compile rootProject.ext.dependencies.design
+    compile rootProject.ext.dependencies.slidableactivity
+    compile rootProject.ext.dependencies.glide
 
     compile project(':rxretrofitlibrary')
     compile project(':statusbarlibrary')

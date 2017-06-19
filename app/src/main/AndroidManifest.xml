@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.net.NetActivity"/>
+        <activity android:name=".activity.net.file.UpLoadActivity"/>
         <activity android:name=".activity.exit.ExitActivity"/>
         <activity android:name=".activity.glide.GlideActivity"/>
         <activity android:name=".activity.glide.GlideDownLoadActivity"/>

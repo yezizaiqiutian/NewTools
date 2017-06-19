@@ -30,53 +30,28 @@ greendao {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
-//    compile 'com.android.support:appcompat-v7:25.3.1'
-//    testCompile 'junit:junit:4.12'
 
-    /*拦截器*/
-//    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    /*greendao*/
-    compile 'org.greenrobot:greendao:3.2.0'
-    /*rx-android-java*/
-//    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-//    compile 'com.trello:rxlifecycle:1.0'
-//    compile 'com.trello:rxlifecycle-components:1.0'
-    /*rotrofit*/
-//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-
-
+//    /*拦截器*/
+//    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+//    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+//    /*greendao*/
+//    compile 'org.greenrobot:greendao:3.2.0'
+//    /*rx-android-java*/
+//    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 //    compile 'com.squareup.retrofit2:retrofit:2.3.0'
 //    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-////    compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
-//    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+//
+//    compile 'com.trello.rxlifecycle2:rxlifecycle:2.1.0'
+//    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
 
-//    compile "com.squareup.retrofit2:retrofit:2.2.0"
-//    compile "com.squareup.retrofit2:converter-gson:2.2.0"
-//    compile "com.squareup.retrofit2:adapter-rxjava:2.2.0"
 
-//    compile 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'
-//    compile 'com.trello.rxlifecycle2:rxlifecycle-android:2.0.1'
+    compile rootProject.ext.dependencies.interceptor
+    compile rootProject.ext.dependencies.okhttp3
+    compile rootProject.ext.dependencies.greendao2
+    compile rootProject.ext.dependencies.retrofitrxjava2
+    compile rootProject.ext.dependencies.retrofit2
+    compile rootProject.ext.dependencies.gson
+    compile rootProject.ext.dependencies.rxlifecycle
+    compile rootProject.ext.dependencies.rxlifecyclecomponents
 
-    compile 'com.trello.rxlifecycle2:rxlifecycle:2.1.0'
-//// If you want to bind to Android-specific lifecycles
-//    compile 'com.trello.rxlifecycle2:rxlifecycle-android:2.1.0'
-//// If you want pre-written Activities and Fragments you can subclass as providers
-    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
-//// If you want to use Navi for providers
-//    compile 'com.trello.rxlifecycle2:rxlifecycle-navi:2.1.0'
-//// If you want to use Android Lifecycle for providers
-//    compile 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.1.0'
-//// If you want to use Kotlin syntax
-//    compile 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.1.0'
-//// If you want to use Kotlin syntax with Android Lifecycle
-//    compile 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:2.1.0'
 }

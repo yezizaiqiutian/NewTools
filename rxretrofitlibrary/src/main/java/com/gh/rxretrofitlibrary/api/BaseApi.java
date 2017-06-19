@@ -37,6 +37,7 @@ public abstract class BaseApi<T> implements Function<T, T> {
     /*是否需要缓存处理*/
     private boolean cache;
     /*基础url*/
+    // TODO: 2017/6/16 BaseUrl地址
     private String baseUrl = "https://www.izaodao.com/Api/";
     /*方法-如果需要缓存必须设置这个参数；不需要不用設置*/
     private String mothed;

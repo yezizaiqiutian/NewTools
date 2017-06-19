@@ -63,5 +63,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tab"/>
+    <Button
+        android:id="@+id/id_btn12_fileup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="文件上传"/>
 
 </LinearLayout>
