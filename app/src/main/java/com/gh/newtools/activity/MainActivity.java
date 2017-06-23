@@ -1,7 +1,6 @@
 package com.gh.newtools.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -19,22 +18,14 @@ import com.gh.newtools.activity.select.SelectDateActivity;
 import com.gh.newtools.activity.slidcloseactivity.SlidCloseActivity;
 import com.gh.newtools.activity.tab.Tab2Activity;
 import com.gh.newtools.activity.tab.TabActivity;
-import com.gh.newtools.activity.tab.UploadApi;
 import com.gh.newtools.base.BaseActivity;
 import com.gh.newtools.utils.T;
-import com.gh.rxretrofitlibrary.http.HttpManager;
-import com.gh.rxretrofitlibrary.listener.HttpOnNextListener;
 
-import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 public class MainActivity extends BaseActivity {
 

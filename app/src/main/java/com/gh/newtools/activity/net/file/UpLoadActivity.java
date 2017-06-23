@@ -7,7 +7,6 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.gh.newtools.R;
-import com.gh.newtools.activity.tab.UploadApi;
 import com.gh.newtools.base.BaseActivity;
 import com.gh.rxretrofitlibrary.http.HttpManager;
 import com.gh.rxretrofitlibrary.listener.HttpOnNextListener;

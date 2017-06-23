@@ -1,4 +1,4 @@
-package com.gh.newtools.activity.net.file.upload;
+package com.gh.rxretrofitlibrary.listener.upload;
 
 /**
  * 上传进度回调类
