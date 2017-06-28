@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/id_et_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getChsAscii" />
+
+        <Button
+            android:id="@+id/id_btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="convert" />
+
+        <Button
+            android:id="@+id/id_btn_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getSelling" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_btn_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="parseEmpty" />
+
+        <Button
+            android:id="@+id/id_btn_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="isEmpty" />
+
+        <Button
+            android:id="@+id/id_btn_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chineseLength" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_btn_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="strLength" />
+
+        <Button
+            android:id="@+id/id_btn_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="subStringLength" />
+
+        <Button
+            android:id="@+id/id_btn_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="isChinese" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/id_btn_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="isContainChinese" />
+
+        <Button
+            android:id="@+id/id_btn_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="strFormat2" />
+
+        <Button
+            android:id="@+id/id_btn_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="convert2Int" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/id_btn_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="decimalFormat" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/id_tv_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

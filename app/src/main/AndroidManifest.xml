@@ -10,6 +10,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--读取SD卡权限-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--访问网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--改变网络状态-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--获取手机状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--打电话权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:name=".base.MyApplication"
@@ -45,6 +53,9 @@
 
         <activity android:name=".activity.tab.TabActivity"/>
         <activity android:name=".activity.tab.Tab2Activity"/>
+        <activity android:name=".activity.device.DeviceActivity"/>
+        <activity android:name=".activity.appmanager.AppManagerActivity"/>
+        <activity android:name=".activity.string.StringActivity"/>
     </application>
 
 </manifest>

@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import com.gh.newtools.R;
 import com.gh.newtools.activity.apkupload.ApkUploadActivity;
+import com.gh.newtools.activity.appmanager.AppManagerActivity;
+import com.gh.newtools.activity.device.DeviceActivity;
 import com.gh.newtools.activity.exit.ExitActivity;
 import com.gh.newtools.activity.glide.GlideActivity;
 import com.gh.newtools.activity.glide.GlideDownLoadActivity;
@@ -16,6 +18,7 @@ import com.gh.newtools.activity.net.file.UpLoadActivity;
 import com.gh.newtools.activity.saveview.SaveViewActivity;
 import com.gh.newtools.activity.select.SelectDateActivity;
 import com.gh.newtools.activity.slidcloseactivity.SlidCloseActivity;
+import com.gh.newtools.activity.string.StringActivity;
 import com.gh.newtools.activity.tab.Tab2Activity;
 import com.gh.newtools.activity.tab.TabActivity;
 import com.gh.newtools.base.BaseActivity;
@@ -47,7 +50,10 @@ public class MainActivity extends BaseActivity {
             R.id.id_btn9_apkupload,
             R.id.id_btn10_tab,
             R.id.id_btn11_tab2,
-            R.id.id_btn12_fileup
+            R.id.id_btn12_fileup,
+            R.id.id_btn13_device,
+            R.id.id_btn14_applist,
+            R.id.id_btn15_stringutils
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -86,6 +92,15 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.id_btn12_fileup:
                 UpLoadActivity.actionStart(mContext);
+                break;
+            case R.id.id_btn13_device:
+                DeviceActivity.actionStart(mContext);
+                break;
+            case R.id.id_btn14_applist:
+                AppManagerActivity.actionStart(mContext);
+                break;
+            case R.id.id_btn15_stringutils:
+                StringActivity.actionStart(mContext);
                 break;
         }
     }

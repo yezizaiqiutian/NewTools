@@ -1,4 +1,4 @@
-package com.gh.newtools.activity.net.file;
+package com.gh.newtools.activity.device;
 
 import android.Manifest;
 import android.content.Context;
@@ -11,41 +11,37 @@ import android.widget.Toast;
 
 import com.gh.newtools.R;
 import com.gh.newtools.base.BaseActivity;
-import com.gh.rxretrofitlibrary.http.HttpManager;
-import com.gh.rxretrofitlibrary.listener.HttpOnNextListener;
+import com.gh.newtools.utils.DensityUtils;
+import com.gh.newtools.utils.DeviceUtils;
+import com.gh.newtools.utils.SystemUtils;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.PermissionNo;
 import com.yanzhenjie.permission.PermissionYes;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RationaleListener;
 
-import java.io.File;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 /**
  * author: gh
- * time: 2017/6/15.
- * description:
+ * time: 2017/6/27.
+ * description:获取手机设备信息
  */
 
-public class UpLoadActivity extends BaseActivity {
+public class DeviceActivity extends BaseActivity {
 
-    @Bind(R.id.id_tv_msg)
-    TextView id_tv_msg;
+    @Bind(R.id.id_tv_device)
+    TextView id_tv_device;
 
     private static final int REQUEST_CODE_PERMISSION_SD = 100;
     private static final int REQUEST_CODE_SETTING = 300;
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, UpLoadActivity.class);
+        Intent intent = new Intent(context, DeviceActivity.class);
         context.startActivity(intent);
     }
 
@@ -53,28 +49,26 @@ public class UpLoadActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_net);
+        setContentView(R.layout.activity_device);
         ButterKnife.bind(this);
 
     }
 
-    @OnClick(R.id.id_btn)
+
+    @OnClick(R.id.id_btn_getdevice)
     public void onViewClicked() {
 
         getPermission();
-
-//        uploadeDo();
+//        getDevice();
 
     }
 
-    /**
-     * 获取权限
-     */
     private void getPermission() {
+
         // 申请单个权限。
         AndPermission.with(this)
                 .requestCode(REQUEST_CODE_PERMISSION_SD)
-                .permission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .permission(Manifest.permission.READ_PHONE_STATE)
 //                .permission(Manifest.permission.WRITE_CALENDAR)
                 .callback(this)
                 // rationale作用是：用户拒绝一次权限，再次申请时先征求用户同意，再打开授权对话框；
@@ -89,6 +83,7 @@ public class UpLoadActivity extends BaseActivity {
                     }
                 })
                 .start();
+
     }
 
     /**
@@ -101,8 +96,9 @@ public class UpLoadActivity extends BaseActivity {
     private void getCalendarYes(@NonNull List<String> grantedPermissions) {
         Toast.makeText(this, "有权限", Toast.LENGTH_SHORT).show();
         //有权限,进行网络请求
-        id_tv_msg.setText("权限申请成功");
-        uploadeDo();
+//        id_tv_msg.setText("权限申请成功");
+//        uploadeDo();
+        getDevice();
     }
 
     /**
@@ -145,63 +141,50 @@ public class UpLoadActivity extends BaseActivity {
         }
     }
 
-    private void uploadeDo(){
-        File file = new File("/sdcard/#gh/111.jpg");
-//      File file=new File("/storage/emulated/0/Download/11.jpg");
-        RequestBody requestBody=RequestBody.create(MediaType.parse("image/jpeg"),file);
-        MultipartBody.Part part= MultipartBody.Part.createFormData("file_name", file.getName(),requestBody /*new ProgressRequestBody(requestBody,
-              new UploadProgressListener() {c:
-
-          @Override
-          public void onProgress(long currentBytesCount, long totalBytesCount) {
-              Log.d("gh", "上传进度:" + currentBytesCount + "/" + totalBytesCount);
-              id_tv_msg.setText("提示:上传中"+currentBytesCount+"/"+totalBytesCount);
-//              progressBar.setMax((int) totalBytesCount);
-//              progressBar.setProgress((int) currentBytesCount);
-          }
-      })*/);
-        UploadApi uplaodApi = new UploadApi(httpOnNextListener,this);
-        uplaodApi.setPart(part);
-        HttpManager manager = HttpManager.getInstance();
-        manager.doHttpDeal(uplaodApi);
+    private void getDevice(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("AndroidID--" + DeviceUtils.getAndroidID(mContext) + "\n");
+        sb.append("getIMEI--" + DeviceUtils.getIMEI(mContext) + "\n");
+        sb.append("getIMSI--" + DeviceUtils.getIMSI(mContext) + "\n");
+        sb.append("getWifiMacAddr--" + DeviceUtils.getWifiMacAddr(mContext) + "\n");
+        //sb.append("getIP--" + DeviceUtils.getIP(c) + "\n");
+        sb.append("getSerial--" + DeviceUtils.getSerial() + "\n");
+        sb.append("getSIMSerial--" + DeviceUtils.getSIMSerial(mContext) + "\n");
+        sb.append("getMNC--" + DeviceUtils.getMNC(mContext) + "\n");
+        sb.append("getBuildBrand--" + DeviceUtils.getBuildBrand() + "\n");
+        sb.append("getBuildHost--" + DeviceUtils.getBuildHost() + "\n");
+        sb.append("getBuildTags--" + DeviceUtils.getBuildTags() + "\n");
+        sb.append("getBuildTime--" + DeviceUtils.getBuildTime() + "\n");
+        sb.append("getBuildUser--" + DeviceUtils.getBuildUser() + "\n");
+        sb.append("getBuildVersionRelease--" + DeviceUtils.getBuildVersionRelease() + "\n");
+        sb.append("getBuildVersionCodename--" + DeviceUtils.getBuildVersionCodename() + "\n");
+        sb.append("getBuildVersionIncremental--" + DeviceUtils.getBuildVersionIncremental() + "\n");
+        sb.append("getBuildVersionSDK--" + DeviceUtils.getBuildVersionSDK() + "\n");
+        sb.append("getSupportedABIS--" + DeviceUtils.getSupportedABIS()[0] + DeviceUtils.getSupportedABIS()[1] + "\n");
+        sb.append("getManufacturer--" + DeviceUtils.getManufacturer() + "\n");
+        sb.append("getBootloader--" + DeviceUtils.getBootloader() + "\n");
+        sb.append("getScreenDisplayID--" + DeviceUtils.getScreenDisplayID(mContext) + "\n");
+        sb.append("getDisplayVersion--" + DeviceUtils.getDisplayVersion() + "\n");
+        sb.append("getLanguage--" + DeviceUtils.getLanguage() + "\n");
+        sb.append("getCountry--" + DeviceUtils.getCountry(mContext) + "\n");
+        sb.append("getOSVersion--" + DeviceUtils.getOSVersion() + "\n");
+        //sb.append("getGSFID--" + DeviceUtils.getGSFID(c) + "\n");
+        sb.append("getBluetoothMAC--" + DeviceUtils.getBluetoothMAC(mContext) + "\n");
+        sb.append("getPsuedoUniqueID--" + DeviceUtils.getPsuedoUniqueID() + "\n");
+        sb.append("getFingerprint--" + DeviceUtils.getFingerprint() + "\n");
+        sb.append("getHardware--" + DeviceUtils.getHardware() + "\n");
+        sb.append("getProduct--" + DeviceUtils.getProduct() + "\n");
+        sb.append("getDevice--" + DeviceUtils.getDevice() + "\n");
+        sb.append("getBoard--" + DeviceUtils.getBoard() + "\n");
+        sb.append("getRadioVersion--" + DeviceUtils.getRadioVersion() + "\n");
+        sb.append("getUA--" + DeviceUtils.getUA(mContext) + "\n");
+        sb.append("getDensity--" + DeviceUtils.getDensity(mContext) + "\n");
+        //sb.append("getAccounts--" + DeviceUtils.getGoogleAccounts(c)[0] + "\n");
+        sb.append("isRunningOnEmulator--" + SystemUtils.isRunningOnEmulator() + "\n");
+        sb.append("isRooted--" + SystemUtils.isRooted() + "\n");
+        sb.append("ScreenWidth x ScreenHeight--" + DensityUtils.getScreenW(mContext) + "x" + (DensityUtils.getScreenRealH(mContext)) + "\n");
+        Log.i("ghost", "StatusBar:" + DensityUtils.getStatusBarH(mContext) + ",Nav:" + DensityUtils.getNavigationBarrH(mContext));
+        id_tv_device.setText(sb);
     }
-
-    /**
-     * 上传回调
-     */
-    HttpOnNextListener httpOnNextListener=new HttpOnNextListener<UploadResulte>() {
-        @Override
-        public void onNext(UploadResulte o) {
-            id_tv_msg.setText("成功");
-            Log.d("gh", "上传成功");
-//            Glide.with(MainActivity.this).load(o.getHeadImgUrl()).skipMemoryCache(true).into(img);
-        }
-
-        @Override
-        public void onError(Throwable e) {
-            super.onError(e);
-            Log.d("gh", "上传失败");
-            id_tv_msg.setText("失败："+e.toString());
-        }
-
-        @Override
-        public void onCacheNext(String string,int q) {
-            id_tv_msg.setText("失败：");
-            Log.d("gh", "上传缓存");
-        }
-
-        @Override
-        public void onNext(Observable observable) {
-            super.onNext(observable);
-            Log.d("gh", "上传next");
-        }
-
-        @Override
-        public void onCancel() {
-            super.onCancel();
-            id_tv_msg.setText("上传取消：");
-            Log.d("gh", "上传取消");
-        }
-    };
 
 }

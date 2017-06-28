@@ -1,72 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context="com.gh.newtools.activity.MainActivity">
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/id_btn1_net"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="联网"/>
-    <Button
-        android:id="@+id/id_btn2_exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="退出"/>
-    <Button
-        android:id="@+id/id_btn3_glide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="图片圆角"/>
-    <Button
-        android:id="@+id/id_btn4_glidedownload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="图片下载"/>
-    <Button
-        android:id="@+id/id_btn5_select_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="日期选择"/>
-    <Button
-        android:id="@+id/id_btn6_saveview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="保存View"/>
-    <Button
-        android:id="@+id/id_btn7_luban"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LuBan压缩"/>
-    <Button
-        android:id="@+id/id_btn8_slidclose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="滑动关闭"/>
-    <Button
-        android:id="@+id/id_btn9_apkupload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="APK更新"/>
-    <Button
-        android:id="@+id/id_btn10_tab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tab"/>
-    <Button
-        android:id="@+id/id_btn11_tab2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tab"/>
-    <Button
-        android:id="@+id/id_btn12_fileup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="文件上传"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/id_btn1_net"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联网" />
+
+        <Button
+            android:id="@+id/id_btn2_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出" />
+
+        <Button
+            android:id="@+id/id_btn3_glide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片圆角" />
+
+        <Button
+            android:id="@+id/id_btn4_glidedownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片下载" />
+
+        <Button
+            android:id="@+id/id_btn5_select_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日期选择" />
+
+        <Button
+            android:id="@+id/id_btn6_saveview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存View" />
+
+        <Button
+            android:id="@+id/id_btn7_luban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LuBan压缩" />
+
+        <Button
+            android:id="@+id/id_btn8_slidclose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="滑动关闭" />
+
+        <Button
+            android:id="@+id/id_btn9_apkupload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APK更新" />
+
+        <Button
+            android:id="@+id/id_btn10_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tab" />
+
+        <Button
+            android:id="@+id/id_btn11_tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tab" />
+
+        <Button
+            android:id="@+id/id_btn12_fileup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="文件上传" />
+
+        <Button
+            android:id="@+id/id_btn13_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备信息" />
+
+        <Button
+            android:id="@+id/id_btn14_applist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App列表" />
+
+        <Button
+            android:id="@+id/id_btn15_stringutils"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StringUtils" />
+
+    </LinearLayout>
+
+</ScrollView>

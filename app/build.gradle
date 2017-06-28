@@ -84,6 +84,8 @@ dependencies {
     compile rootProject.ext.dependencies.design
     compile rootProject.ext.dependencies.slidableactivity
     compile rootProject.ext.dependencies.glide
+    compile rootProject.ext.dependencies.permission
+    compile rootProject.ext.dependencies.recyclerview
 
     compile project(':rxretrofitlibrary')
     compile project(':statusbarlibrary')
