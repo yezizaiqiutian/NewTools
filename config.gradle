@@ -18,6 +18,8 @@ ext {
             //app
             //注解
             butterknife:'com.jakewharton:butterknife:7.0.1',
+//            butterknife:'com.jakewharton:butterknife:8.5.1',
+//            butterknifecompiler:'com.jakewharton:butterknife-compiler:8.5.1',
             //5.0风格
             design:'com.android.support:design:25.3.1',
             //滑动关闭页面库
@@ -55,7 +57,10 @@ ext {
             recyclerview:'com.android.support:recyclerview-v7:'+SUPPORT_VERSION,
 
             //权限
-            permission : 'com.yanzhenjie:permission:1.0.8'
+            permission : 'com.yanzhenjie:permission:1.0.8',
+
+            //字体
+            calligraphy: 'uk.co.chrisjenx:calligraphy:2.3.0'
 
     ]
 
